@@ -8,7 +8,7 @@ const gallery = document.querySelector('.gallery')
 const form = document.querySelector('.search-form')
 const apiClass = new ApiClass();
  
-onSearchBtn = e => {
+onSearch = e => {
   e.preventDefault();
 
 const {
@@ -30,4 +30,4 @@ const {
 
 
 
-form.addEventListener('submit', onSearchBtn)
+form.addEventListener('submit', onSearch)
