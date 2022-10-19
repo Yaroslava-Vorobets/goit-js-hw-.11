@@ -2,7 +2,8 @@ import axios from "axios";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { ApiClass } from "./js/apiClass";
 import { refs } from './js/refs'
-import {createMarkup} from './js/markup'
+import { createMarkup } from './js/markup'
+const searchBtn = document.querySelector('.search')
 const gallery = document.querySelector('.gallery')
 const form = document.querySelector('.search-form')
 const apiClass = new ApiClass();
