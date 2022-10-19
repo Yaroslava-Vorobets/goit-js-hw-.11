@@ -8,7 +8,7 @@ const gallery = document.querySelector('.gallery')
 const form = document.querySelector('.search-form')
 const apiClass = new ApiClass();
  
-onSearch = e => {
+const onSearch = e => {
   e.preventDefault();
 
 const {
@@ -22,7 +22,7 @@ const {
   }
   apiClass.getPhotos(inputSearchQuery).then(data => {
   console.log(data)
-  // const markup = data.map(createMarkup)
+  //const markup = data.map(createMarkup)
   // gallery.insertAdjacentHTML('beforeend',markup.join(''))
 })
 }
