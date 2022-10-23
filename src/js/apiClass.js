@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { searchBtn, gallery, form, loadBtn, } from './refs';
-BASE_URL = 'https://pixabay.com/api/';
-KEY = '30652229-d54eee621831264e80866ca26';
-PARAMS = '&image_type=photo&orientation=horizontal&safesearch=true'
+const BASE_URL = 'https://pixabay.com/api/';
+const KEY = '30652229-d54eee621831264e80866ca26';
+const PARAMS = '&image_type=photo&orientation=horizontal&safesearch=true'
 export class ApiClass {
     #page = 1;
     #query = '';
