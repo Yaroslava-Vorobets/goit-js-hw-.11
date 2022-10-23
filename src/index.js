@@ -50,22 +50,24 @@ const onSearch = async e => {
   }    
 }
 
-const onLoadMore = async () => {  
+const onLoadMore = async () => {
   try {
-  apiClass.incrementPage()  
-   if (apiClass.isShowLoadMore) {
-    loadBtn.classList.add('is-hidden')      
-  } 
-    const {totalHits, hits } = await apiClass.getPhotos()
-    const markup = createMarkup(hits);
-    gallery.insertAdjacentHTML('beforeend', markup);   
-    lightbox.refresh() 
+  apiClass.incrementPage();
+   if (!apiClass.isShowLoadMore) {
+    loadBtn.classList.add('is-hidden');
     Notify.failure(`We're sorry, but you've reached the end of search results.`)
-  } 
-  catch(error) {   
-     apiClass.clearPage(); 
+  }
+  const {totalHits, hits } = await apiClass.getPhotos();
+//
+console.log(apiClass.calculateTotalPages(totalHits));
+    const markup = createMarkup(hits);
+    gallery.insertAdjacentHTML('beforeend', markup);
+    lightbox.refresh()
+  }
+  catch(error) {
+     console.log(error.message);
   }
 }
 
-form.addEventListener('submit', onSearch)
-loadBtn.addEventListener('click', onLoadMore)
+form.addEventListener('submit', onSearch);
+loadBtn.addEventListener('click', onLoadMore);
