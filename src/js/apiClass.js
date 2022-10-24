@@ -33,6 +33,7 @@ export class ApiClass {
         console.log( this.#totalPages);
         return this.#totalPages = Math.ceil(total / this.#perPage);
     }
+    
     clearPage() {
         this.resetPage()
         gallery.innerHTML = ''

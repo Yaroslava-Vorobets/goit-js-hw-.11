@@ -23,9 +23,11 @@ const onSearch = async e => {
   if (!inputSearchQuery) {
     Notify.failure('Sorry, your search query is empty!');
     return;
-  }  
+  } 
+  
 
   apiClass.query = inputSearchQuery
+  apiClass.clearPage()
  
   try {
     const { totalHits, hits } = await apiClass.getPhotos()
@@ -45,9 +47,9 @@ const onSearch = async e => {
       }   
   }
   catch (error)  {
-    Notify.failure(error.message)
-    apiClass.clearPage();
-  }    
+  Notify.failure(error.message)
+  apiClass.clearPage()
+  }   
 }
 
 const onLoadMore = async () => {
@@ -59,13 +61,14 @@ const onLoadMore = async () => {
   }
   const {totalHits, hits } = await apiClass.getPhotos();
 //
-console.log(apiClass.calculateTotalPages(totalHits));
+  console.log(apiClass.calculateTotalPages(totalHits));
     const markup = createMarkup(hits);
     gallery.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh()
   }
   catch(error) {
-     console.log(error.message);
+  console.log(error.message);
+  apiClass.clearPage()
   }
 }
 
